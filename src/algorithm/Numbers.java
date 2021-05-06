@@ -15,7 +15,7 @@ public class Numbers {
      *
      */
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
         int[] num = new int[1000000];
         storeRandomNumbers(num);
