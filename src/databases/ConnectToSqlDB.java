@@ -1,6 +1,5 @@
 package databases;
 
-import parser.xml.Student;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-public class ConnectToSqlDB {
+public class ConnectToSqlDB<Student> {
 
     public static Connection connect = null;
     public static Statement statement = null;
@@ -27,10 +26,10 @@ public class ConnectToSqlDB {
 
     public static Connection connectToSqlDatabase() throws IOException, SQLException, ClassNotFoundException {
         Properties prop = loadProperties();
-        String driverClass = prop.getProperty("MYSQLJDBC.driver");
-        String url = prop.getProperty("MYSQLJDBC.url");
-        String userName = prop.getProperty("MYSQLJDBC.userName");
-        String password = prop.getProperty("MYSQLJDBC.password");
+        String driverClass = prop.getProperty("com.mysql.cj.jdbc.Driver");
+        String url = prop.getProperty("jdbc:mysql://localhost:3306");
+        String userName = prop.getProperty("root");
+        String password = prop.getProperty("root1234");
         Class.forName(driverClass);
         connect = DriverManager.getConnection(url, userName, password);
         System.out.println("Database is connected");
