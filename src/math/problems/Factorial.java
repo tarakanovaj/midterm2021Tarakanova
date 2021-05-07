@@ -19,7 +19,7 @@ public class Factorial {
     }
     public int factorialCalculationWithIteration (int number){
 
-        int factorial;
+        int factorial=1 ;
         int finalFactorial=1;
         for(int i=number; i>1; i--) {
             factorial = i;
